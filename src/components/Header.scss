@@ -1,0 +1,292 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-bottom: 1px solid transparent;
+  transition: background $transition-base, border-color $transition-base, box-shadow $transition-base;
+
+  // Version 2: solid white bar, dark text (default styles below assume this)
+  &--solid {
+    background: $color-white;
+    border-color: $color-border;
+  }
+
+  &--scrolled {
+    box-shadow: $shadow-sm;
+  }
+
+  // Version 1: transparent overlay, white text (home page, at top)
+  &--transparent {
+    background: transparent;
+    border-color: transparent;
+
+    .logo__img--on-light {
+      display: none;
+    }
+
+    .logo__img--on-dark {
+      display: block;
+    }
+
+    .nav__link {
+      color: rgba(255, 255, 255, 0.85);
+
+      &:hover,
+      &--active {
+        color: $color-white;
+      }
+
+      &::after {
+        background: $color-white;
+      }
+    }
+
+    .nav__caret {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .header__toggle span {
+      background: $color-white;
+    }
+  }
+
+  &__inner {
+    @include flex(row, center, space-between);
+    width: 100%;
+    padding-inline: clamp($space-5, 3vw, $space-7);
+    height: $header-height;
+
+    .logo {
+      height: 100%;
+    }
+  }
+
+  &__toggle {
+    @include btn-reset;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 34px;
+    height: 34px;
+
+    span {
+      display: block;
+      height: 2px;
+      background: $color-ink;
+      border-radius: 2px;
+      transition: transform $transition-base, opacity $transition-base;
+    }
+
+    &--open {
+      span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    }
+
+    @media (max-width: $bp-lg) {
+      display: flex;
+    }
+  }
+}
+
+.nav {
+  @include flex(row, center, flex-end, $space-6);
+
+  &__list {
+    @include flex(row, center, center, $space-5);
+  }
+
+  &__link {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: $color-ink-soft;
+    padding-block: $space-2;
+    position: relative;
+    transition: color $transition-base;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      height: 2px;
+      background: $color-azure;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform $transition-base;
+    }
+
+    &:hover {
+      color: $color-ink;
+    }
+
+    &--active {
+      color: $color-ink;
+      font-weight: 600;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    &--trigger {
+      @include btn-reset;
+      @include flex(row, center, center, $space-1);
+    }
+  }
+
+  &__item--dropdown {
+    position: relative;
+  }
+
+  &__caret {
+    @include flex(row, center, center, 0);
+    align-self: center;
+    font-size: 0.68rem;
+    line-height: 1;
+    margin-left: 2px;
+    color: $color-ink-soft;
+    transition: transform $transition-base;
+
+    svg {
+      display: block;
+    }
+  }
+
+  &__item--active &__caret {
+    transform: rotate(180deg);
+  }
+
+  &__submenu {
+    position: absolute;
+    top: calc(100% + #{$space-3});
+    left: 50%;
+    transform: translateX(-50%) translateY(4px);
+    min-width: 230px;
+    background: $color-white;
+    border: 1px solid $color-border;
+    border-radius: $radius-md;
+    box-shadow: $shadow-md;
+    padding: $space-2;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity $transition-base, transform $transition-base, visibility $transition-base;
+    z-index: 10;
+  }
+
+  &__item--active &__submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  &__submenu-link {
+    display: block;
+    padding: 0.6rem 0.85rem;
+    border-radius: $radius-sm;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: $color-ink-soft;
+    transition: background $transition-base, color $transition-base;
+
+    &:hover {
+      background: $color-bg-alt;
+      color: $color-ink;
+    }
+
+    &--active {
+      color: $color-teal;
+      font-weight: 600;
+    }
+  }
+
+  &__cta {
+    @include flex(row, center, flex-end, $space-3);
+
+    // Invert on hover — no shadow, no lift
+    .btn--primary {
+      border: 1px solid transparent;
+      box-shadow: none;
+
+      &:hover {
+        background: $color-white;
+        color: $color-azure;
+        border-color: $color-azure;
+        box-shadow: none;
+        transform: none;
+      }
+    }
+  }
+
+  @media (max-width: $bp-lg) {
+    position: fixed;
+    inset: $header-height 0 0 0;
+    background: $color-white;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: $space-6 $space-5;
+    gap: $space-6;
+    transform: translateX(100%);
+    transition: transform $transition-base;
+    overflow-y: auto;
+
+    &--open {
+      transform: translateX(0);
+    }
+
+    &__list {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $space-2;
+      width: 100%;
+    }
+
+    &__item--dropdown {
+      width: 100%;
+    }
+
+    &__link--trigger {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    &__submenu {
+      position: static;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      box-shadow: none;
+      border: none;
+      max-height: 0;
+      padding: 0 0 0 $space-4;
+      overflow: hidden;
+      transition: max-height $transition-base;
+    }
+
+    &__item--active &__submenu {
+      max-height: 400px;
+      padding: $space-2 0 $space-2 $space-4;
+    }
+
+    &__cta {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+}
+
+// Mobile navbar: keep the full wordmark but noticeably smaller (header
+// only — the footer logo is unaffected).
+@media (max-width: $bp-md) {
+  .header .logo__img {
+    max-height: 26px;
+  }
+}

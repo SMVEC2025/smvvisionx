@@ -1,0 +1,26 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.gallery-grid {
+  @include grid(3, $space-4);
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+
+  &__tile {
+    aspect-ratio: 4 / 3;
+    border-radius: $radius-md;
+    background: $color-bg-muted;
+    border: 1px solid $color-border;
+    transition: transform $transition-base;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}

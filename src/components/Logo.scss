@@ -1,0 +1,19 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.logo {
+  @include flex(row, center, flex-start, $space-2);
+
+  &__img {
+    height: 80%;
+    max-height: 44px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  // On-light variant by default; the transparent header swaps to on-dark.
+  &__img--on-dark {
+    display: none;
+  }
+}

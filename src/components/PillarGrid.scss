@@ -1,0 +1,40 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.pillar-grid {
+  @include grid(3, $space-6);
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: 1fr;
+    gap: $space-7;
+  }
+}
+
+.pillar {
+  border-top: 1px solid $color-border;
+  padding-top: $space-5;
+
+  &__num {
+    display: block;
+    font-size: clamp(2.2rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: $color-ink-soft;
+    margin-bottom: $space-4;
+  }
+
+  &__title {
+    font-family: $font-base;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: $color-azure;
+    margin-bottom: 0;
+  }
+
+  &__desc {
+    color: $color-ink-soft;
+    line-height: 1.7;
+    font-size: 0.98rem;
+  }
+}

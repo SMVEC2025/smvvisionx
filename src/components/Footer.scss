@@ -1,0 +1,95 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.footer {
+  background: $color-bg-alt;
+  border-top: 1px solid $color-border;
+
+  &__inner {
+    @include container;
+    @include grid(4, $space-6);
+    padding-block: $space-8;
+
+    @media (max-width: $bp-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: $bp-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__brand {
+    grid-column: span 1;
+
+    @media (max-width: $bp-lg) {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__tagline {
+    margin-top: $space-4;
+    color: $color-ink-soft;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    max-width: 320px;
+  }
+
+  &__social {
+    display: inline-block;
+    margin-top: $space-4;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $color-teal;
+    transition: color $transition-base;
+
+    &:hover {
+      color: $color-indigo;
+    }
+  }
+
+  &__col {
+    h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: $color-ink;
+      margin-bottom: $space-4;
+    }
+
+    ul {
+      @include flex(column, flex-start, flex-start, $space-3);
+    }
+
+    a {
+      color: $color-ink-soft;
+      font-size: 0.92rem;
+      transition: color $transition-base;
+
+      &:hover {
+        color: $color-teal;
+      }
+    }
+  }
+
+  &__contact li {
+    color: $color-ink-soft;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  &__bottom {
+    border-top: 1px solid $color-border;
+    padding-block: $space-4;
+    @include container;
+    @include flex(row, center, space-between);
+    color: $color-ink-soft;
+    font-size: 0.82rem;
+
+    @media (max-width: $bp-md) {
+      flex-direction: column;
+      gap: $space-2;
+      text-align: center;
+    }
+  }
+}

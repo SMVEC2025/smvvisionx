@@ -1,0 +1,42 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.person-card {
+  @include card;
+  @include card-hover;
+  padding: $space-6;
+  text-align: center;
+
+  &__avatar {
+    width: 76px;
+    height: 76px;
+    margin-inline: auto;
+    margin-bottom: $space-4;
+    border-radius: 50%;
+    background: $color-azure;
+    color: $color-white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    @include flex(row, center, center);
+  }
+
+  &__photo {
+    width: 112px;
+    height: 112px;
+    margin-inline: auto;
+    margin-bottom: $space-4;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid $color-border;
+  }
+
+  &__name {
+    font-size: 1.05rem;
+    margin-bottom: $space-1;
+  }
+
+  &__role {
+    font-size: 0.88rem;
+    color: $color-ink-soft;
+  }
+}

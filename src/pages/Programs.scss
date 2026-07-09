@@ -1,0 +1,102 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.matrix-table-wrap {
+  overflow-x: auto;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  background: $color-white;
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+
+  th,
+  td {
+    text-align: left;
+    padding: $space-4 $space-5;
+    vertical-align: top;
+    border-bottom: 1px solid $color-border;
+  }
+
+  thead th {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: $color-ink-soft;
+    background: $color-bg-alt;
+    white-space: nowrap;
+  }
+
+  tbody tr {
+    transition: background $transition-base;
+
+    &:last-child td {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: $color-bg-alt;
+    }
+  }
+
+  tbody td:first-child {
+    color: $color-ink;
+    white-space: nowrap;
+  }
+
+  td:nth-child(2),
+  td:nth-child(3) {
+    color: $color-ink-soft;
+    white-space: nowrap;
+  }
+
+  td:last-child {
+    color: $color-ink-soft;
+    line-height: 1.6;
+    min-width: 260px;
+  }
+
+  // Stack into cards on small screens
+  @media (max-width: $bp-md) {
+    thead {
+      @include visually-hidden;
+    }
+
+    tbody tr {
+      display: block;
+      padding: $space-4 $space-5;
+      border-bottom: 1px solid $color-border;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    td,
+    td:first-child,
+    td:nth-child(2),
+    td:nth-child(3),
+    td:last-child {
+      display: block;
+      padding: $space-2 0;
+      border: none;
+      white-space: normal;
+      min-width: 0;
+    }
+
+    td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: $color-teal;
+      margin-bottom: $space-1;
+    }
+  }
+}

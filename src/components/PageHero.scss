@@ -1,0 +1,30 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.page-hero {
+  background: $color-bg-alt;
+  border-bottom: 1px solid $color-border;
+
+  &__inner {
+    @include container;
+    padding-block: $space-8;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 400;
+    color: $color-ink-softt;
+  }
+
+  &__desc {
+    margin-top: $space-4;
+    max-width: 44rem;
+    color: $color-ink-soft;
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+}

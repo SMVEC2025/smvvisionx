@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://visionx.smvec.ac.in/</loc><priority>1.0</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/about</loc><priority>0.8</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/vision</loc><priority>0.7</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/board</loc><priority>0.6</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/team</loc><priority>0.6</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/programs</loc><priority>0.9</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/programs/pre-incubation</loc><priority>0.8</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/programs/incubation</loc><priority>0.8</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/programs/events</loc><priority>0.5</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/facilities</loc><priority>0.7</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/sectors</loc><priority>0.7</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/mentors</loc><priority>0.6</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/gallery</loc><priority>0.5</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/startups/pre-incubation</loc><priority>0.6</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/startups/incubation</loc><priority>0.6</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/join-us</loc><priority>0.8</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/join-us/incubatee</loc><priority>0.8</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/join-us/mentor</loc><priority>0.7</priority></url>
+  <url><loc>https://visionx.smvec.ac.in/contact</loc><priority>0.7</priority></url>
+</urlset>

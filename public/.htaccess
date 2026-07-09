@@ -1,0 +1,10 @@
+# SPA fallback for Apache: serve index.html for client-side routes
+# so deep links (e.g. /about) and search-engine crawlers resolve correctly.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

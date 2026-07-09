@@ -1,0 +1,44 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.startup-grid {
+  @include grid(3, $space-5);
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.startup-card {
+  @include card;
+  @include card-hover;
+  padding: $space-6;
+
+  &__sector {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: $color-teal;
+    background: $color-bg-muted;
+    padding: 0.3rem 0.7rem;
+    border-radius: $radius-pill;
+    margin-bottom: $space-3;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: $space-2;
+  }
+
+  p {
+    color: $color-ink-soft;
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+}

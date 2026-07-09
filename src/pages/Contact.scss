@@ -1,0 +1,37 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+@use './JoinUs.scss';
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: $space-7;
+
+  @media (max-width: $bp-md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-info {
+  @include flex(column, stretch, flex-start, $space-6);
+
+  &__item {
+    @include flex(column, flex-start, flex-start, $space-2);
+
+    a, p {
+      color: $color-ink-soft;
+    }
+
+    a:hover {
+      color: $color-teal;
+    }
+  }
+
+  &__label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: $color-teal;
+  }
+}
