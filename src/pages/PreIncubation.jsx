@@ -18,7 +18,7 @@ export default function PreIncubation() {
     <>
       <Seo
         title="Pre-Incubation Program"
-        description="A 12-month pre-incubation track for founders at the ideation and proof-of-concept stage — ideation bootcamps, IP assessment, MVP architecture support and academic mentor mapping."
+        description="A 12-month pre-incubation track for founders at the ideation and proof-of-concept stage, covering ideation bootcamps, IP assessment, MVP architecture support and academic mentor mapping."
       />
 
       <PageHero

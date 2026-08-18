@@ -1,0 +1,48 @@
+@use '../styles/variables' as *;
+
+.infrastructure-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-4;
+
+  @media (max-width: $bp-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $bp-sm) {
+    grid-template-columns: 1fr;
+  }
+
+  &__item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    border-radius: $radius-md;
+    border: 1px solid $color-border;
+    background: $color-bg-muted;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform $transition-base;
+    }
+
+    figcaption {
+      position: absolute;
+      left: $space-3;
+      bottom: $space-3;
+      padding: 0.35rem 0.65rem;
+      border-radius: $radius-sm;
+      background: rgba(255, 255, 255, 0.92);
+      color: $color-ink;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    &:hover img {
+      transform: scale(1.035);
+    }
+  }
+}

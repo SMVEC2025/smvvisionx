@@ -23,8 +23,24 @@ export default function CtaBand({
         </h2>
         <p className="cta-band__desc">{description}</p>
         <div className="cta-band__actions">
-          <CtaButton to={primary.to} variant="primary">{primary.label}</CtaButton>
-          <CtaButton to={secondary.to} variant="secondary">{secondary.label}</CtaButton>
+          <CtaButton
+            to={primary.to}
+            href={primary.href}
+            target={primary.href ? '_blank' : undefined}
+            rel={primary.href ? 'noopener noreferrer' : undefined}
+            variant="primary"
+          >
+            {primary.label}
+          </CtaButton>
+          <CtaButton
+            to={secondary.to}
+            href={secondary.href}
+            target={secondary.href ? '_blank' : undefined}
+            rel={secondary.href ? 'noopener noreferrer' : undefined}
+            variant="secondary"
+          >
+            {secondary.label}
+          </CtaButton>
         </div>
       </div>
     </section>

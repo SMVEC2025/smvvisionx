@@ -26,7 +26,7 @@ export default function PreIncubationStartups() {
             <SectionHeading
               eyebrow="Cohort"
               title="Our founders will be featured here soon"
-              description="We’re onboarding our current pre-incubation cohort. Have an idea at the proof-of-concept stage? Apply and you could be featured here."
+              description="We are onboarding our current pre-incubation cohort. Have an idea at the proof-of-concept stage? Apply and you could be featured here."
               align="center"
             />
             <Button to="/join-us/incubatee" variant="primary">Apply for Pre-Incubation</Button>

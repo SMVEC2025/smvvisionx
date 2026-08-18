@@ -42,7 +42,7 @@ export default function Contact() {
       <PageHero
         eyebrow="Get In Touch"
         title="Contact Us"
-        description="Questions about incubation, mentorship or partnerships? We’d love to hear from you."
+        description="Questions about incubation, mentorship, partnerships or the ecosystem brochure? We'd love to hear from you."
       />
 
       <section className="section">
@@ -60,7 +60,7 @@ export default function Contact() {
               <span className="contact-info__label">Registered Office</span>
               <p>
                 {CONTACT.address.line1},<br />
-                {CONTACT.address.line2} &ndash; {CONTACT.address.postalCode}
+                {CONTACT.address.line2} - {CONTACT.address.postalCode}
               </p>
             </div>
             <div className="contact-info__item">
@@ -75,11 +75,11 @@ export default function Contact() {
             {sent ? (
               <div className="form-success">
                 <h3>Message sent</h3>
-                <p>Thanks for reaching out — we’ll get back to you shortly.</p>
+                <p>Thanks for reaching out - we'll get back to you shortly.</p>
               </div>
             ) : (
               <form className="apply-form" onSubmit={handleSubmit}>
-                <input type="hidden" name="_subject" value="New Contact Enquiry — SMV VisionX" />
+                <input type="hidden" name="_subject" value="New Contact Enquiry - SMV VisionX" />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_next" value={`${SITE.url}/contact`} />
@@ -108,7 +108,7 @@ export default function Contact() {
                 )}
 
                 <Button type="submit" variant="primary" disabled={submitting}>
-                  {submitting ? 'Sending…' : 'Send Message'}
+                  {submitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             )}

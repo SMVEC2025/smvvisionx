@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CtaButton from '../components/CtaButton';
 import SectionHeading from '../components/SectionHeading';
@@ -16,44 +15,27 @@ const PILLARS = [
   {
     title: 'Our Mission',
     description:
-      'To provide institutional support, world-class lab access and seed funding pathways to high-potential founders — de-risking early-stage commercialization by aligning academia, corporate mentorship and venture capital.',
+      'To provide institutional support, world-class lab access and seed funding pathways to high-potential founders - de-risking early-stage commercialization by aligning academia, corporate mentorship and venture capital.',
   },
   {
     title: 'Section 8 Not-for-Profit',
     description:
-      'Incorporated as a dedicated Section 8 entity, SMV VisionX serves as a vital node in India’s startup infrastructure — offering corporate networks, infrastructure and technical expertise.',
+      "Incorporated as a dedicated Section 8 entity, SMV VisionX serves as a vital node in India's startup infrastructure - offering corporate networks, infrastructure and technical expertise.",
   },
 ];
 
 const MATRIX = [
   { tier: 'Pre-Incubation', stage: 'Ideation & Proof of Concept', duration: '12 Months' },
-  { tier: 'Physical Incubation', stage: 'MVP Ready & Early Traction', duration: '15–24 Months' },
-  { tier: 'Virtual Incubation', stage: 'Scalable / Remote Ventures', duration: 'Continuous' },
+  { tier: 'Physical Incubation', stage: 'MVP Ready & Early Traction', duration: '15-24 Months' },
   { tier: 'Acceleration Program', stage: 'Growth & Go-To-Market', duration: '4 Weeks' },
 ];
 
 const SECTORS = ['Healthcare', 'Agribusiness & Agri-Tech', 'Edu-Tech', 'Emerging Technologies'];
 
-const HERO_SLIDES = [
-  '/images/collections/image1.jpg',
-  '/images/collections/image2.jpg',
-  '/images/collections/image3.jpg',
-  '/images/collections/image4.jpg',
-];
-
-const SLIDE_INTERVAL_MS = 5000;
+const HERO_IMAGE = '/images/hero-main.webp';
+const INCUBATEE_FORM_URL = 'https://forms.gle/nMpE2AQLw4CP2NBUA';
 
 export default function Home() {
-  const [slide, setSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(
-      () => setSlide((s) => (s + 1) % HERO_SLIDES.length),
-      SLIDE_INTERVAL_MS
-    );
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <>
       <Seo
@@ -63,13 +45,7 @@ export default function Home() {
 
       <section className="hero">
         <div className="hero__slides" aria-hidden="true">
-          {HERO_SLIDES.map((src, i) => (
-            <div
-              key={src}
-              className={`hero__slide ${i === slide ? 'hero__slide--active' : ''}`}
-              style={{ backgroundImage: `url(${src})` }}
-            />
-          ))}
+          <div className="hero__slide hero__slide--active" style={{ backgroundImage: `url(${HERO_IMAGE})` }} />
         </div>
         <div className="hero__inner">
           <div className="hero__meta">
@@ -85,17 +61,17 @@ export default function Home() {
 
           <p className="hero__desc">
             A premier technology and business incubation ecosystem operating out of Sri
-            Manakula Vinayagar Engineering College campus — bridging disruptive academic
+            Manakula Vinayagar Engineering College campus - bridging disruptive academic
             research and commercial market success.
           </p>
           <p className="hero__lead">Empowering Regional Pioneers to Solve Global Challenges.</p>
 
           <div className="hero__actions">
-            <CtaButton to="/join-us/incubatee" variant="primary">
+            <CtaButton href={INCUBATEE_FORM_URL} target="_blank" rel="noopener noreferrer" variant="primary">
               Join Our Upcoming Cohort
             </CtaButton>
             <Link to="/contact" className="hero__link">
-              <span aria-hidden="true">+</span> Download Ecosystem Brochure
+              <span aria-hidden="true">+</span> Request Ecosystem Brochure
             </Link>
           </div>
         </div>
@@ -117,7 +93,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="The Incubation Matrix"
             title="A structured path from idea to scale"
-            description="Our tiered framework meets founders at every stage — from proof of concept to go-to-market acceleration."
+            description="Our tiered framework meets founders at every stage - from proof of concept to go-to-market acceleration."
           />
           <div className="matrix-teaser">
             {MATRIX.map((m) => (
@@ -152,7 +128,7 @@ export default function Home() {
       <CtaBand
         title="Take the next step"
         description="Access institutional seed grants, world-class labs and a network of mentors and investors. Choose the path that fits your venture."
-        primary={{ label: 'Apply for Incubation', to: '/join-us/incubatee' }}
+        primary={{ label: 'Apply for Incubation', href: INCUBATEE_FORM_URL }}
         secondary={{ label: 'Contact Us', to: '/contact' }}
       />
     </>

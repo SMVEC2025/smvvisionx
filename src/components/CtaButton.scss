@@ -4,6 +4,8 @@
 .cta-btn {
   @include flex(row, center, center, $space-3);
   display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
   padding: 0.5rem 1.5rem 0.5rem 0.5rem;
   border-radius: $radius-pill;
   border: 1px solid transparent;
@@ -20,7 +22,7 @@
     transition: background $transition-base, color $transition-base;
   }
 
-  // Filled azure pill, white badge — hover fully inverts
+  // Filled azure pill, white badge - hover fully inverts
   &--primary {
     background: $color-azure;
     color: $color-white;
@@ -42,7 +44,7 @@
     }
   }
 
-  // Outlined pill, teal badge — hover fully inverts
+  // Outlined pill, teal badge - hover fully inverts
   &--secondary {
     background: $color-white;
     color: $color-ink;

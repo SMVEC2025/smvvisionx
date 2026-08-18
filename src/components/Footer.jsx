@@ -12,7 +12,7 @@ const EXPLORE_LINKS = [
 ];
 
 const COMMUNITY_LINKS = [
-  { to: '/programs', label: 'Incubation Matrix' },
+  { to: '/programs', label: 'Programs' },
   { to: '/sectors', label: 'Focus Areas' },
   { to: '/mentors', label: 'Mentors' },
   { to: '/gallery', label: 'Gallery' },
@@ -29,7 +29,7 @@ export default function Footer() {
           <Logo />
           <p className="footer__tagline">
             A premier technology and business incubation ecosystem at Sri Manakula
-            Vinayagar Engineering College — empowering regional pioneers to solve
+            Vinayagar Engineering College, empowering regional pioneers to solve
             global challenges.
           </p>
           <a
@@ -72,7 +72,7 @@ export default function Footer() {
             </li>
             <li>
               {CONTACT.address.line1},<br />
-              {CONTACT.address.line2} &ndash; {CONTACT.address.postalCode}
+              {CONTACT.address.line2} - {CONTACT.address.postalCode}
             </li>
           </ul>
         </div>

@@ -6,7 +6,7 @@ export const SITE = {
   shortName: 'SMV VisionX',
   tagline: 'Fueling Innovation. Scaling Ventures. Transforming Horizons.',
   description:
-    'SMV VisionX Foundation is a premier technology and business incubation ecosystem at Sri Manakula Vinayagar Engineering College, Puducherry — bridging academic research and commercial success through funding, mentorship and infrastructure.',
+    'SMV VisionX Foundation is a premier technology and business incubation ecosystem at Sri Manakula Vinayagar Engineering College, Puducherry, bridging academic research and commercial success through funding, mentorship and infrastructure.',
   url: 'https://visionx.smvec.ac.in',
   parentInstitution: 'Sri Manakula Vinayagar Engineering College',
 };

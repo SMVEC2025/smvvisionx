@@ -12,7 +12,6 @@ const NAV_LINKS = [
     label: 'About Us',
     children: [
       { to: '/about', label: 'About the Foundation' },
-      { to: '/vision', label: 'Vision & Mission' },
       { to: '/board', label: 'Board of Directors' },
       { to: '/team', label: 'Team' },
       { to: '/facilities', label: 'Infrastructure' },
@@ -21,7 +20,7 @@ const NAV_LINKS = [
     ],
   },
   {
-    label: 'Incubation Matrix',
+    label: 'Programs',
     children: [
       { to: '/programs', label: 'Overview' },
       { to: '/programs/pre-incubation', label: 'Pre-Incubation' },
@@ -67,7 +66,7 @@ export default function Header() {
 
   // Version 1 (transparent, white text) overlays the home hero at the top;
   // version 2 (solid white, dark text) everywhere else, on scroll, or with
-  // the mobile menu open — light page backgrounds need dark text.
+  // the mobile menu open - light page backgrounds need dark text.
   const transparent = location.pathname === '/' && !scrolled && !open;
 
   return (

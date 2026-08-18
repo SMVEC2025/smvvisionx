@@ -24,9 +24,9 @@ export default function Events() {
           <div className="empty-state">
             <span className="empty-state__icon" aria-hidden="true"><FontAwesomeIcon icon={faCalendarDays} /></span>
             <SectionHeading
-              eyebrow="What’s On"
+              eyebrow="What's On"
               title="Upcoming events, announced soon"
-              description="Our next cohort bootcamps, demo days and pitch events will be listed here. Follow us on LinkedIn to be the first to know."
+              description="Our next cohort bootcamps, demo days and pitch events will be listed here. Contact us for partnership or event updates."
               align="center"
             />
             <Button to="/contact" variant="secondary">Get event updates</Button>

@@ -210,7 +210,7 @@
   &__cta {
     @include flex(row, center, flex-end, $space-3);
 
-    // Invert on hover — no shadow, no lift
+    // Invert on hover - no shadow, no lift
     .btn--primary {
       border: 1px solid transparent;
       box-shadow: none;
@@ -284,7 +284,7 @@
 }
 
 // Mobile navbar: keep the full wordmark but noticeably smaller (header
-// only — the footer logo is unaffected).
+// only - the footer logo is unaffected).
 @media (max-width: $bp-md) {
   .header .logo__img {
     max-height: 26px;

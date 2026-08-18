@@ -3,9 +3,9 @@ import SectionHeading from '../components/SectionHeading';
 import Seo from '../components/Seo';
 
 const DIRECTORS = [
-  { name: 'Shri. Dhanasekaran Mahalingam — Chairman', image: '/images/board/chairman-1.png' },
-  { name: 'Shri. Rajarajan Dhanasekaran — Treasurer', image: '/images/board/treasurer-1.png' },
-  { name: 'Dr. V.S.K. Venkatachalapathy — Director', image: '/images/board/director-1.png' },
+  { name: 'Shri. Dhanasekaran Mahalingam - Chairman', image: '/images/board/chairman-1.png' },
+  { name: 'Shri. Rajarajan Dhanasekaran - Treasurer', image: '/images/board/treasurer-1.png' },
+  { name: 'Dr. V.S.K. Venkatachalapathy - Director', image: '/images/board/director-1.png' },
 ];
 
 export default function Board() {
@@ -19,7 +19,7 @@ export default function Board() {
       <PageHero
         eyebrow="Governance"
         title="Board of Directors"
-        description="Backed by elite academicians, visionary administrators and corporate strategists who guide the foundation’s strategy and partnerships."
+        description="Backed by elite academicians, visionary administrators and corporate strategists who guide the foundation's strategy and partnerships."
       />
 
       <section className="section">
@@ -32,7 +32,6 @@ export default function Board() {
           </div>
         </div>
       </section>
-
     </>
   );
 }

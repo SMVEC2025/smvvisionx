@@ -13,7 +13,7 @@ const PILLARS = [
   {
     title: 'Our Mission',
     description:
-      'To provide institutional support, world-class lab access and seed funding pathways to high-potential founders — de-risking early-stage commercialization by aligning academia, corporate mentorship and venture capital.',
+      'To provide institutional support, world-class lab access and seed funding pathways to high-potential founders - de-risking early-stage commercialization by aligning academia, corporate mentorship and venture capital.',
   },
 ];
 
@@ -27,7 +27,7 @@ export default function About() {
 
       <PageHero
         eyebrow="About Us"
-        title="A vital node in India’s startup infrastructure"
+        title="A vital node in India's startup infrastructure"
         description="Incorporated as a dedicated Section 8 Not-for-Profit entity, SMV VisionX Foundation offers early-stage startups a comprehensive toolkit consisting of robust corporate networks, infrastructure and technical expertise."
       />
 
@@ -39,7 +39,7 @@ export default function About() {
       </section>
 
       <section className="section section--alt">
-        <div className="container grid-2">
+        <div className="container grid-2 grid-2--cards">
           <div>
             <SectionHeading
               eyebrow="Leadership"
@@ -52,7 +52,7 @@ export default function About() {
             <SectionHeading
               eyebrow="Ecosystem"
               title="Infrastructure, mentorship and funding under one roof"
-              description="From state-of-the-art workspaces and advanced prototyping labs to a curated mentorship network and a seed funding pipeline — every resource a founder needs, on campus."
+              description="From state-of-the-art workspaces and advanced prototyping labs to a curated mentorship network and a seed funding pipeline - every resource a founder needs, on campus."
             />
             <Button to="/facilities" variant="secondary">Explore Infrastructure</Button>
           </div>

@@ -4,8 +4,18 @@ import SectionHeading from '../components/SectionHeading';
 import Seo from '../components/Seo';
 
 const TEAM = [
-  { name: 'Dr. Elam Cheren S', role: 'Incubation Manager / Operations Lead', initials: 'EC' },
-  { name: 'Mr. Kumaran S', role: 'Incubation Assistant Manager', initials: 'KS' },
+  {
+    name: 'Dr. Elam Cheren',
+    role: 'Incubation Manager / Operations Lead',
+    initials: 'EC',
+    image: '/images/team/Elam_Cheren.webp',
+  },
+  {
+    name: 'Kumaran S',
+    role: 'Incubation Assistant Manager',
+    initials: 'KS',
+    image: '/images/team/Kumaran_S.webp',
+  },
 ];
 
 export default function Team() {
@@ -13,7 +23,7 @@ export default function Team() {
     <>
       <Seo
         title="Team"
-        description="The executive team running programs, operations and mentoring at SMV VisionX Foundation — led by Incubation Manager Dr. Elam Cheren S."
+        description="The executive team running programs, operations and mentoring at SMV VisionX Foundation, led by Incubation Manager Dr. Elam Cheren."
       />
 
       <PageHero
@@ -24,8 +34,8 @@ export default function Team() {
 
       <section className="section">
         <div className="container">
-          <SectionHeading eyebrow="Operations" title="Who you’ll work with" />
-          <div className="grid-3">
+          <SectionHeading eyebrow="Operations" title="Who you'll work with" />
+          <div className="grid-2 team-grid">
             {TEAM.map((t) => (
               <PersonCard key={t.name} {...t} />
             ))}

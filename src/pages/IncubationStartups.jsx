@@ -26,7 +26,7 @@ export default function IncubationStartups() {
             <SectionHeading
               eyebrow="Portfolio"
               title="Our portfolio is taking shape"
-              description="We’re building our incubation portfolio. MVP-ready ventures with early traction are invited to apply and join the cohort."
+              description="We are building our incubation portfolio. MVP-ready ventures with early traction are invited to apply and join the cohort."
               align="center"
             />
             <Button to="/join-us/incubatee" variant="primary">Apply for Incubation</Button>

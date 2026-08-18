@@ -39,7 +39,7 @@ export default function Sectors() {
     <>
       <Seo
         title="Strategic Focus Areas"
-        description="SMV VisionX backs innovators in AI/ML, IoT & Smart Systems, AgriTech and Deep Tech — with focus sectors across Healthcare, Agribusiness, Edu-Tech and Emerging Technologies."
+        description="SMV VisionX backs innovators in AI/ML, IoT & Smart Systems, AgriTech and Deep Tech, with focus sectors across Healthcare, Agribusiness, Edu-Tech and Emerging Technologies."
       />
 
       <PageHero

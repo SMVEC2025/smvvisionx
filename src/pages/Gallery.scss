@@ -4,6 +4,14 @@
 .gallery-grid {
   @include grid(3, $space-4);
 
+  &--compact {
+    grid-template-columns: repeat(4, 1fr);
+
+    .gallery-grid__tile {
+      aspect-ratio: 1 / 1;
+    }
+  }
+
   @media (max-width: $bp-md) {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -13,11 +21,20 @@
   }
 
   &__tile {
+    display: block;
+    overflow: hidden;
     aspect-ratio: 4 / 3;
     border-radius: $radius-md;
     background: $color-bg-muted;
     border: 1px solid $color-border;
     transition: transform $transition-base;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
     &:hover {
       transform: scale(1.02);
