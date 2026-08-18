@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import CtaButton from '../components/CtaButton';
 import SectionHeading from '../components/SectionHeading';
@@ -35,7 +36,30 @@ const SECTORS = ['Healthcare', 'Agribusiness & Agri-Tech', 'Edu-Tech', 'Emerging
 const HERO_IMAGE = '/images/hero-main.webp';
 const INCUBATEE_FORM_URL = 'https://forms.gle/nMpE2AQLw4CP2NBUA';
 
+const GLASS_SCALE_REST = 4;
+const GLASS_SCALE_HOVER = 150;
+const GLASS_BLUR_HOVER = 4; // extra px of blur at full hover
+
 export default function Home() {
+  const displacementRef = useRef(null);
+  const blurRef = useRef(null);
+  const glassScale = useRef(GLASS_SCALE_REST);
+  const glassRaf = useRef(0);
+
+  const animateGlassScale = (target) => {
+    cancelAnimationFrame(glassRaf.current);
+    const step = () => {
+      const current = glassScale.current;
+      const next = Math.abs(target - current) < 0.5 ? target : current + (target - current) * 0.12;
+      glassScale.current = next;
+      displacementRef.current?.setAttribute('scale', next);
+      const t = (next - GLASS_SCALE_REST) / (GLASS_SCALE_HOVER - GLASS_SCALE_REST);
+      blurRef.current?.setAttribute('stdDeviation', (t * GLASS_BLUR_HOVER).toFixed(2));
+      if (next !== target) glassRaf.current = requestAnimationFrame(step);
+    };
+    glassRaf.current = requestAnimationFrame(step);
+  };
+
   return (
     <>
       <Seo
@@ -70,11 +94,28 @@ export default function Home() {
             <CtaButton href={INCUBATEE_FORM_URL} target="_blank" rel="noopener noreferrer" variant="primary">
               Join Our Upcoming Cohort
             </CtaButton>
-            <Link to="/contact" className="hero__link">
-              <span aria-hidden="true">+</span> Request Ecosystem Brochure
+            <Link
+              to="/contact"
+              className="hero__link"
+              onMouseEnter={() => animateGlassScale(GLASS_SCALE_HOVER)}
+              onMouseLeave={() => animateGlassScale(GLASS_SCALE_REST)}
+              onFocus={() => animateGlassScale(GLASS_SCALE_HOVER)}
+              onBlur={() => animateGlassScale(GLASS_SCALE_REST)}
+            >
+              <span className="hero__link-icon" aria-hidden="true">+</span>
+              <span className="hero__link-label">Request Ecosystem Brochure</span>
             </Link>
           </div>
         </div>
+
+        {/* Refraction filter for the liquid-glass button (from liquid-glass-vue) */}
+        <svg style={{ display: 'none' }} aria-hidden="true">
+          <filter id="displacementFilter">
+            <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="2" result="turbulence" />
+            <feDisplacementMap ref={displacementRef} in="SourceGraphic" in2="turbulence" scale="4" xChannelSelector="R" yChannelSelector="G" />
+            <feGaussianBlur ref={blurRef} stdDeviation="0" />
+          </filter>
+        </svg>
       </section>
 
       <section className="section">

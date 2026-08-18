@@ -89,16 +89,6 @@
     color: $color-white;
     font-weight: 500;
 
-    &::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -0.18em;
-      height: 0.14em;
-      border-radius: $radius-pill;
-      background: linear-gradient(90deg, $color-azure, $color-teal);
-    }
   }
 
   &__desc {
@@ -123,22 +113,40 @@
     margin-top: $space-6;
   }
 
+  // Liquid glass button — ported from liquid-glass-vue AppCard.vue:
+  // SVG turbulence/displacement refraction in the backdrop-filter,
+  // drop shadow on the element, inset white edge highlights on ::before.
   &__link {
     @include flex(row, center, center, $space-2);
-    font-weight: 600;
-    font-size: 0.95rem;
+    position: relative;
+    overflow: hidden;
+    font-weight: 400;
+    font-size: 1.05rem;
     color: $color-white;
-    padding-bottom: 2px;
-    transition: color $transition-base, border-color $transition-base;
+    min-width: clamp(240px, 23vw, 320px);
+    min-height: 56px;
+    padding: 0.9rem 1.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.185);
+    border-radius: $radius-pill;
+    filter: drop-shadow(-8px -10px 46px #0000005f);
+    backdrop-filter: blur(1px) url(#displacementFilter);
+    // Safari doesn't support url() filters in backdrop-filter; frosted fallback
+    -webkit-backdrop-filter: blur(1px);
+    transition: background-color 0.26s ease-out;
 
-    span {
+    &-icon,
+    &-label {
+      position: relative;
+      z-index: 1;
+    }
+
+    &-icon {
       font-size: 1.1rem;
-      color: $color-teal;
+      color: $color-white;
     }
 
     &:hover {
-      color: $color-teal;
-      border-color: $color-teal;
+      color: $color-white;
     }
   }
 }

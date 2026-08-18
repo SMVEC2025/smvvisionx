@@ -1,35 +1,41 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import PageHero from '../components/PageHero';
 import Button from '../components/Button';
 import Seo from '../components/Seo';
-import { CONTACT, SITE } from '../data/site';
+import { CONTACT } from '../data/site';
 import './JoinUs.scss';
 import './Contact.scss';
 
-const FORM_ENDPOINT = `https://formsubmit.co/${CONTACT.email}`;
+const GOOGLE_FORM_ENDPOINT =
+  'https://docs.google.com/forms/d/e/1FAIpQLSfArZYORQQrEATndoPWu4DDAV69oatW6sMBynY-v61XpoShvQ/formResponse';
+
+const GOOGLE_FORM_FIELDS = {
+  name: 'entry.1016943331',
+  email: 'entry.607863602',
+  message: 'entry.1175064105',
+};
+
+const GOOGLE_FORM_FRAME = 'contact-google-form-submit';
+const GOOGLE_FORM_FBZ = '-6266156251992963385';
 
 export default function Contact() {
+  const formRef = useRef(null);
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(false);
+  const [submittedToGoogle, setSubmittedToGoogle] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     setSubmitting(true);
     setError(false);
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: new FormData(e.target),
-      });
-      if (!res.ok) throw new Error('Request failed');
-      setSent(true);
-    } catch {
-      setError(true);
-    } finally {
-      setSubmitting(false);
-    }
+    setSubmittedToGoogle(true);
+  };
+
+  const handleGoogleFrameLoad = () => {
+    if (!submittedToGoogle) return;
+    formRef.current?.reset();
+    setSent(true);
+    setSubmitting(false);
   };
 
   return (
@@ -72,32 +78,43 @@ export default function Contact() {
           </div>
 
           <div className="contact-form-wrap">
+            <iframe
+              title="Contact form submission"
+              name={GOOGLE_FORM_FRAME}
+              onLoad={handleGoogleFrameLoad}
+              style={{ display: 'none' }}
+            />
             {sent ? (
               <div className="form-success">
                 <h3>Message sent</h3>
                 <p>Thanks for reaching out - we'll get back to you shortly.</p>
               </div>
             ) : (
-              <form className="apply-form" onSubmit={handleSubmit}>
-                <input type="hidden" name="_subject" value="New Contact Enquiry - SMV VisionX" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value={`${SITE.url}/contact`} />
-                <input type="text" name="_honey" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
-
+              <form
+                ref={formRef}
+                className="apply-form"
+                action={GOOGLE_FORM_ENDPOINT}
+                method="POST"
+                target={GOOGLE_FORM_FRAME}
+                onSubmit={handleSubmit}
+              >
+                <input type="hidden" name="fvv" value="1" />
+                <input type="hidden" name="partialResponse" value={`[null,null,"${GOOGLE_FORM_FBZ}"]`} />
+                <input type="hidden" name="pageHistory" value="0" />
+                <input type="hidden" name="fbzx" value={GOOGLE_FORM_FBZ} />
                 <div className="apply-form__row">
                   <label>
                     Name
-                    <input type="text" name="Name" required placeholder="Your name" />
+                    <input type="text" name={GOOGLE_FORM_FIELDS.name} required placeholder="Your name" />
                   </label>
                   <label>
                     Email
-                    <input type="email" name="Email" required placeholder="you@example.com" />
+                    <input type="email" name={GOOGLE_FORM_FIELDS.email} required placeholder="you@example.com" />
                   </label>
                 </div>
                 <label>
                   Message
-                  <textarea name="Message" rows={5} required placeholder="How can we help?" />
+                  <textarea name={GOOGLE_FORM_FIELDS.message} rows={5} required placeholder="How can we help?" />
                 </label>
 
                 {error && (
