@@ -97,6 +97,8 @@ export default function Home() {
             <Link
               to="/contact"
               className="hero__link"
+              // Inline because the CSS minifier strips url() filters from stylesheets
+              style={{ backdropFilter: 'blur(1px) url(#displacementFilter)', WebkitBackdropFilter: 'blur(1px)' }}
               onMouseEnter={() => animateGlassScale(GLASS_SCALE_HOVER)}
               onMouseLeave={() => animateGlassScale(GLASS_SCALE_REST)}
               onFocus={() => animateGlassScale(GLASS_SCALE_HOVER)}

@@ -129,9 +129,8 @@
     border: 1px solid rgba(255, 255, 255, 0.185);
     border-radius: $radius-pill;
     filter: drop-shadow(-8px -10px 46px #0000005f);
-    backdrop-filter: blur(1px) url(#displacementFilter);
-    // Safari doesn't support url() filters in backdrop-filter; frosted fallback
-    -webkit-backdrop-filter: blur(1px);
+    // backdrop-filter is set inline in Home.jsx — the CSS minifier (Lightning CSS)
+    // strips url(#displacementFilter) from stylesheets in production builds
     transition: background-color 0.26s ease-out;
 
     &-icon,
