@@ -62,7 +62,7 @@ export default function Home() {
 
   return (
     <>
-      <Seo
+      <Seo 
         title="Technology & Business Incubation Ecosystem"
         description="SMV VisionX Foundation is a premier technology and business incubation ecosystem at Sri Manakula Vinayagar Engineering College, Puducherry. Join our cohort for funding, mentorship and infrastructure."
       />
